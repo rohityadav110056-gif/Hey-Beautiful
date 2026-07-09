@@ -3,234 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Plan For Us ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Just A Little Fun ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #c18c5d;
-            --secondary: #f3e9dc;
-            --text-dark: #2b2d42;
-            --heart-color: rgba(193, 140, 93, 0.2);
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #fdfaf6;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
-        }
-        .hearts-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-        .floating-heart { position: absolute; bottom: -50px; color: var(--heart-color); animation: floatUp 8s linear infinite; }
-        @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            padding: 35px 25px;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(193, 140, 93, 0.1);
-            max-width: 420px;
-            width: 90%;
-            min-height: 420px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            text-align: center;
-        }
-        h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #a06a42; margin-bottom: 20px; line-height: 1.4; }
-        p { font-size: 14px; color: #666; margin-bottom: 20px; }
-        .hidden { display: none !important; }
-        .options-list { display: flex; flex-direction: column; gap: 12px; width: 100%; margin-bottom: 20px; }
-        .option-btn {
-            background: white;
-            border: 1px solid rgba(193, 140, 93, 0.3);
-            padding: 14px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-dark);
-            text-align: left;
-        }
-        .option-btn:hover { background: var(--secondary); border-color: var(--primary); transform: translateY(-2px); }
-        
-        /* Inputs Customization */
-        input[type="date"], input[type="time"] {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid rgba(193, 140, 93, 0.4);
-            border-radius: 12px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            margin-bottom: 15px;
-            outline: none;
-        }
-        .btn-next {
-            background-color: var(--primary); color: white; padding: 12px 35px; font-size: 15px; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(193, 140, 93, 0.3); margin-top: 10px; width: 100%;
-        }
+        body { font-family: 'Poppins', sans-serif; background-color: #fdfaf6; color: #333; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; padding: 10px; }
+        .container { background: white; padding: 30px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 400px; text-align: center; border: 1px solid #eee; }
+        h1 { font-size: 20px; color: #5d5d5d; margin-bottom: 10px; }
+        p { font-size: 14px; color: #888; margin-bottom: 25px; }
+        .option-btn { background: #f9f9f9; border: 1px solid #ddd; padding: 12px; margin: 8px 0; border-radius: 12px; cursor: pointer; width: 100%; transition: 0.3s; }
+        .option-btn:hover { background: #eef2f3; border-color: #c18c5d; }
+        .hidden { display: none; }
+        .btn-next { background: #c18c5d; color: white; border: none; padding: 12px 30px; border-radius: 20px; cursor: pointer; margin-top: 15px; }
     </style>
 </head>
 <body>
 
-    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
-    <div class="hearts-bg" id="hearts-container"></div>
+<div id="screen1" class="container">
+    <h1>Hello! 👋</h1>
+    <p>Hum abhi naye dost bane hain, to socha kyun na ek choti si fun game kheli jaye? ✨</p>
+    <button class="btn-next" onclick="next('screen2')">Chalo khelte hain! 😊</button>
+</div>
 
-    <!-- SCREEN 0: Intro -->
-    <div id="screen-start" class="container">
-        <h1>Let's Plan A Perfect Date! 🍽️✨</h1>
-        <p>Maine humari date ke liye kuch pyari choices rakhi hain, tum apni pasand batao. 😉</p>
-        <button class="btn-next" onclick="startGame()">Plan Start Karte Hain ❤️</button>
-    </div>
+<div id="screen2" class="container hidden">
+    <h1>Agar humein kabhi Lucknow me ghoomne jana ho, to aapka favorite spot kaunsa hoga? 🏰</h1>
+    <div class="option-btn" onclick="save('Spot', 'Hazratganj ghoomna 🛍️'), next('screen3')">Hazratganj ghoomna 🛍️</div>
+    <div class="option-btn" onclick="save('Spot', 'Marine Drive Lucknow 🌊'), next('screen3')">Marine Drive Lucknow 🌊</div>
+    <div class="option-btn" onclick="save('Spot', 'Janeshwar Mishra Park 🌳'), next('screen3')">Janeshwar Mishra Park 🌳</div>
+</div>
 
-    <!-- SCREEN 1: Date Invitation -->
-    <div id="screen-invite" class="container hidden">
-        <h1>Will you go out on a date with me? 🌹</h1>
-        <div class="options-list">
-            <div class="option-btn" onclick="selectOption('invite', 'Yes, definitely! 🥰')">Yes, definitely! 🥰</div>
-            <div class="option-btn" onclick="selectOption('invite', 'Only if you treat me well 😜')">Only if you treat me well 😜</div>
-            <div class="option-btn" onclick="selectOption('invite', 'Chalo chalte hain! ✨')">Chalo chalte hain! ✨</div>
-        </div>
-    </div>
+<div id="screen3" class="container hidden">
+    <h1>Khane me kya zyada pasand hai? 😋</h1>
+    <div class="option-btn" onclick="save('Food', 'Kuch yummy sa Italian 🍕'), next('screen4')">Kuch yummy sa Italian 🍕</div>
+    <div class="option-btn" onclick="save('Food', 'Traditional Veg North Indian 🍲'), next('screen4')">Traditional Veg North Indian 🍲</div>
+    <div class="option-btn" onclick="save('Food', 'Street food ya Chat 🥙'), next('screen4')">Street food ya Chat 🥙</div>
+</div>
 
-    <!-- SCREEN 2: Lucknow Restaurants -->
-    <div id="screen-restaurant" class="container hidden">
-        <h1>Lucknow me kahan chalna pasand karogi? 🏰</h1>
-        <div class="options-list">
-            <div class="option-btn" onclick="selectOption('restaurant', 'Oudhyana (Taj Mahal Lucknow) 👑')">Oudhyana (Taj Mahal Lucknow) 👑</div>
-            <div class="option-btn" onclick="selectOption('restaurant', 'The Hazelnut Factory ✨')">The Hazelnut Factory ✨</div>
-            <div class="option-btn" onclick="selectOption('restaurant', 'Fal构造k Numa (Rooftop View) 🌌')">Falak Numa (Rooftop View) 🌌</div>
-            <div class="option-btn" onclick="selectOption('restaurant', 'L-14 (Renaissance) 🏙️')">L-14 (Renaissance) 🏙️</div>
-        </div>
-    </div>
+<div id="screen4" class="container hidden">
+    <h1>Free time me kya dekhna pasand karti ho? 🎬</h1>
+    <div class="option-btn" onclick="save('Movie', 'Koi light-hearted Comedy ✨'), next('screen5')">Koi light-hearted Comedy ✨</div>
+    <div class="option-btn" onclick="save('Movie', 'Exciting Adventure 🗺️'), next('screen5')">Exciting Adventure 🗺️</div>
+    <div class="option-btn" onclick="save('Movie', 'Kuch Inspirational 🌟'), next('screen5')">Kuch Inspirational 🌟</div>
+</div>
 
-    <!-- SCREEN 3: Simple Veg Food -->
-    <div id="screen-food" class="container hidden">
-        <h1>Simple Veg Khane me kya mangwayen? 🍲</h1>
-        <div class="options-list">
-            <div class="option-btn" onclick="selectOption('food', 'Shahi Paneer & Butter Naan 🫓')">Shahi Paneer & Butter Naan 🫓</div>
-            <div class="option-btn" onclick="selectOption('food', 'Dal Makhani & Jeera Rice 🍛')">Dal Makhani & Jeera Rice 🍛</div>
-            <div class="option-btn" onclick="selectOption('food', 'Special Veg Kebab Paratha 🌯')">Special Veg Kebab Paratha 🌯</div>
-            <div class="option-btn" onclick="selectOption('food', 'Jo tum mangwa do, sab chalega 🥰')">Jo tum mangwa do, sab chalega 🥰</div>
-        </div>
-    </div>
+<div id="screen5" class="container hidden">
+    <h1>Yay! Thank you for playing! ❤️</h1>
+    <p>Aapki choices save ho gayi hain. Button click karke mujhe bhej do, taaki mujhe aapki pasand pata chal sake! 😊</p>
+    <button class="btn-next" onclick="finish()">Send to Snapchat 👻</button>
+</div>
 
-    <!-- SCREEN 4: Dessert -->
-    <div id="screen-dessert" class="container hidden">
-        <h1>Meehte (Dessert) me kya khana hai? 🍨</h1>
-        <div class="options-list">
-            <div class="option-btn" onclick="selectOption('dessert', 'Sizzling Brownie with Ice Cream 🍫')">Sizzling Brownie with Ice Cream 🍫</div>
-            <div class="option-btn" onclick="selectOption('dessert', 'Lucknow ki Famous Shahi Tukda 🍧')">Lucknow ki Famous Shahi Tukda 🍧</div>
-            <div class="option-btn" onclick="selectOption('dessert', 'Red Velvet Pastry 🍰')">Red Velvet Pastry 🍰</div>
-            <div class="option-btn" onclick="selectOption('dessert', 'Rasmalai Twist 🌸')">Rasmalai Twist 🌸</div>
-        </div>
-    </div>
-
-    <!-- SCREEN 5: Date and Time -->
-    <div id="screen-datetime" class="container hidden">
-        <h1>Hum kab chal rahe hain? ⏳</h1>
-        <p>Apni marzi se Date aur Time select karo:</p>
-        <input type="date" id="dateInput">
-        <input type="time" id="timeInput">
-        <button class="btn-next" onclick="submitDateTime()">Next Step ➡️</button>
-    </div>
-
-    <!-- SCREEN 6: Movie Genre -->
-    <div id="screen-movie" class="container hidden">
-        <h1>Khaane ke baad movie kaunsi dekhni hai? 🎬</h1>
-        <div class="options-list">
-            <div class="option-btn" onclick="selectOption('movie', 'Romantic (Haath pakad kar dekhne ke liye) 💖')">Romantic (Haath pakad kar dekhne ke liye) 💖</div>
-            <div class="option-btn" onclick="selectOption('movie', 'Horror (Darr kar paas aane ke liye) 👻')">Horror (Darr kar paas aane ke liye) 👻</div>
-            <div class="option-btn" onclick="selectOption('movie', 'Action (Full entertainment) 🍿')">Action (Full entertainment) 🍿</div>
-            <div class="option-btn" onclick="selectOption('movie', 'Adventure (Kuch naya aur exciting) 🗺️')">Adventure (Kuch naya aur exciting) 🗺️</div>
-        </div>
-    </div>
-
-    <!-- SCREEN 7: Final Submit -->
-    <div id="screen-final" class="container hidden">
-        <h1>Yeah! Perfect Date Plan Ready Hai! ❤️</h1>
-        <p>Niche button par click karte hi saara plan copy ho jayega, bas mere Snapchat par paste kar do! ✨</p>
-        <button class="btn-next" onclick="submitAnswers()">Copy & Open Snapchat 👻</button>
-    </div>
-
-    <script>
-        let choices = { invite: "", restaurant: "", food: "", dessert: "", date: "", time: "", movie: "" };
-        const mySnapchatUsername = "Rohit.yadav011"; 
-
-        // Floating Hearts Background
-        const heartsContainer = document.getElementById('hearts-container');
-        const heartIcons = ['❤️', '💖', '✨', '🌸', '🌹'];
-        for (let i = 0; i < 20; i++) {
-            let heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDelay = Math.random() * 6 + 's';
-            heart.style.fontSize = (Math.random() * 12 + 12) + 'px';
-            heartsContainer.appendChild(heart);
-        }
-
-        function startGame() {
-            const music = document.getElementById('bg-music');
-            music.play().catch(e => console.log("Audio play delayed"));
-            nextScreen('screen-invite');
-        }
-
-        function nextScreen(nextId) {
-            document.querySelectorAll('.container').forEach(el => el.classList.add('hidden'));
-            document.getElementById(nextId).classList.remove('hidden');
-        }
-
-        function selectOption(step, val) {
-            choices[step] = val;
-            
-            if(step === 'invite') nextScreen('screen-restaurant');
-            else if(step === 'restaurant') nextScreen('screen-food');
-            else if(step === 'food') nextScreen('screen-dessert');
-            else if(step === 'dessert') nextScreen('screen-datetime');
-            else if(step === 'movie') nextScreen('screen-final');
-        }
-
-        function submitDateTime() {
-            const d = document.getElementById('dateInput').value;
-            const t = document.getElementById('timeInput').value;
-            if(!d || !t) {
-                alert("Please date aur time select karo! 🗓️⏱️");
-                return;
-            }
-            choices.date = d;
-            choices.time = t;
-            nextScreen('screen-movie');
-        }
-
-        function submitAnswers() {
-            const textToCopy = `Hey Rohit! Maine humari date plan kar li hai: 🌹✨\n\n` +
-                               `💌 Date Proposal: ${choices.invite}\n` +
-                               `🏰 Restaurant: ${choices.restaurant}\n` +
-                               `🍲 Veg Dinner: ${choices.food}\n` +
-                               `🍨 Dessert: ${choices.dessert}\n` +
-                               `🗓️ Date: ${choices.date}\n` +
-                               `⏱️ Time: ${choices.time}\n` +
-                               `🎬 Movie Choice: ${choices.movie}`;
-            
-            navigator.clipboard.writeText(textToCopy).then(() => {
-                alert("Aapka customized plan copy ho gaya hai! 👍 Ab Snapchat par paste kar dijiye.");
-                const snapchatUrl = `https://www.snapchat.com/add/${mySnapchatUsername}`;
-                window.open(snapchatUrl, '_blank');
-            }).catch(err => {
-                alert("Please manually copy or screenshot the choices.");
-            });
-        }
-    </script>
+<script>
+    let answers = {};
+    function next(id) {
+        document.querySelectorAll('.container').forEach(c => c.classList.add('hidden'));
+        document.getElementById(id).classList.remove('hidden');
+    }
+    function save(key, val) { answers[key] = val; }
+    function finish() {
+        let text = "Hey! Maine tumhare liye wo game khela: 😊\n\n";
+        for(let key in answers) text += `${key}: ${answers[key]}\n`;
+        navigator.clipboard.writeText(text);
+        alert("Choices copy ho gayi! Ab mere Snapchat par paste kar do. ✨");
+        window.open('https://www.snapchat.com/add/Rohit.yadav011', '_blank');
+    }
+</script>
 </body>
 </html>
