@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Little Game For You ✨</title>
+    <title>A Special Plan For Us ✨</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,7 +38,7 @@
             box-shadow: 0 20px 40px rgba(193, 140, 93, 0.1);
             max-width: 420px;
             width: 90%;
-            min-height: 400px;
+            min-height: 420px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -47,7 +47,8 @@
             border: 1px solid rgba(255, 255, 255, 0.7);
             text-align: center;
         }
-        h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #a06a42; margin-bottom: 25px; line-height: 1.4; }
+        h1 { font-family: 'Playfair Display', serif; font-size: 24px; color: #a06a42; margin-bottom: 20px; line-height: 1.4; }
+        p { font-size: 14px; color: #666; margin-bottom: 20px; }
         .hidden { display: none !important; }
         .options-list { display: flex; flex-direction: column; gap: 12px; width: 100%; margin-bottom: 20px; }
         .option-btn {
@@ -63,8 +64,20 @@
             text-align: left;
         }
         .option-btn:hover { background: var(--secondary); border-color: var(--primary); transform: translateY(-2px); }
+        
+        /* Inputs Customization */
+        input[type="date"], input[type="time"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid rgba(193, 140, 93, 0.4);
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            margin-bottom: 15px;
+            outline: none;
+        }
         .btn-next {
-            background-color: var(--primary); color: white; padding: 12px 35px; font-size: 15px; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(193, 140, 93, 0.3); margin-top: 15px;
+            background-color: var(--primary); color: white; padding: 12px 35px; font-size: 15px; font-weight: 600; border: none; border-radius: 50px; cursor: pointer; box-shadow: 0 5px 15px rgba(193, 140, 93, 0.3); margin-top: 10px; width: 100%;
         }
     </style>
 </head>
@@ -73,60 +86,90 @@
     <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
     <div class="hearts-bg" id="hearts-container"></div>
 
+    <!-- SCREEN 0: Intro -->
     <div id="screen-start" class="container">
-        <h1>Hey! I made a little interactive game for you. 🌸</h1>
-        <p style="font-size: 14px; color: #666; margin-bottom: 25px;">Kuch interesting sawaal hain, genuinely jawab dena! 😉</p>
-        <button class="btn-next" onclick="startGame()">Let's Play ✨</button>
+        <h1>Let's Plan A Perfect Date! 🍽️✨</h1>
+        <p>Maine humari date ke liye kuch pyari choices rakhi hain, tum apni pasand batao. 😉</p>
+        <button class="btn-next" onclick="startGame()">Plan Start Karte Hain ❤️</button>
     </div>
 
-    <div id="screen-q1" class="container hidden">
-        <h1>Q1. Tumhe mai looks wise kaisa lagta hu? 👀</h1>
+    <!-- SCREEN 1: Date Invitation -->
+    <div id="screen-invite" class="container hidden">
+        <h1>Will you go out on a date with me? 🌹</h1>
         <div class="options-list">
-            <div class="option-btn" onclick="selectOption(1, 'Cute & Charming 🥰')">Cute & Charming 🥰</div>
-            <div class="option-btn" onclick="selectOption(1, 'Thik-thak, standard hai 😅')">Thik-thak, standard hai 😅</div>
-            <div class="option-btn" onclick="selectOption(1, 'Accha lagta hai pr bolungi nahi 🤫')">Accha lagta hai pr bolungi nahi 🤫</div>
+            <div class="option-btn" onclick="selectOption('invite', 'Yes, definitely! 🥰')">Yes, definitely! 🥰</div>
+            <div class="option-btn" onclick="selectOption('invite', 'Only if you treat me well 😜')">Only if you treat me well 😜</div>
+            <div class="option-btn" onclick="selectOption('invite', 'Chalo chalte hain! ✨')">Chalo chalte hain! ✨</div>
         </div>
     </div>
 
-    <div id="screen-q2" class="container hidden">
-        <h1>Q2. Agar life 1 saal peeche chali jaye aur mai tumhe propose karu, toh kya tum accept karogi? ⏳</h1>
+    <!-- SCREEN 2: Lucknow Restaurants -->
+    <div id="screen-restaurant" class="container hidden">
+        <h1>Lucknow me kahan chalna pasand karogi? 🏰</h1>
         <div class="options-list">
-            <div class="option-btn" onclick="selectOption(2, 'Haan, bilkul! Kaan pakad ke haan ❤️')">Haan, bilkul! Kaan pakad ke haan ❤️</div>
-            <div class="option-btn" onclick="selectOption(2, 'Sochna padega, itna aasan nahi hai 😉')">Sochna padega, itna aasan nahi hai 😉</div>
-            <div class="option-btn" onclick="selectOption(2, 'Nahi, hum acche dost hain 🌸')">Nahi, hum acche dost hain 🌸</div>
+            <div class="option-btn" onclick="selectOption('restaurant', 'Oudhyana (Taj Mahal Lucknow) 👑')">Oudhyana (Taj Mahal Lucknow) 👑</div>
+            <div class="option-btn" onclick="selectOption('restaurant', 'The Hazelnut Factory ✨')">The Hazelnut Factory ✨</div>
+            <div class="option-btn" onclick="selectOption('restaurant', 'Fal构造k Numa (Rooftop View) 🌌')">Falak Numa (Rooftop View) 🌌</div>
+            <div class="option-btn" onclick="selectOption('restaurant', 'L-14 (Renaissance) 🏙️')">L-14 (Renaissance) 🏙️</div>
         </div>
     </div>
 
-    <div id="screen-q3" class="container hidden">
-        <h1>Q3. Humari baatein aur vibe tumhe kaisi lagti hai? ✨</h1>
+    <!-- SCREEN 3: Simple Veg Food -->
+    <div id="screen-food" class="container hidden">
+        <h1>Simple Veg Khane me kya mangwayen? 🍲</h1>
         <div class="options-list">
-            <div class="option-btn" onclick="selectOption(3, 'Ekdum perfect, dil khush ho jata hai 🥰')">Ekdum perfect, dil khush ho jata hai 🥰</div>
-            <div class="option-btn" onclick="selectOption(3, 'Normal hai, boring nahi lagta 👍')">Normal hai, boring nahi lagta 👍</div>
-            <div class="option-btn" onclick="selectOption(3, 'Kabhi kabhi bohot annoying ho tum 😜')">Kabhi kabhi bohot annoying ho tum 😜</div>
+            <div class="option-btn" onclick="selectOption('food', 'Shahi Paneer & Butter Naan 🫓')">Shahi Paneer & Butter Naan 🫓</div>
+            <div class="option-btn" onclick="selectOption('food', 'Dal Makhani & Jeera Rice 🍛')">Dal Makhani & Jeera Rice 🍛</div>
+            <div class="option-btn" onclick="selectOption('food', 'Special Veg Kebab Paratha 🌯')">Special Veg Kebab Paratha 🌯</div>
+            <div class="option-btn" onclick="selectOption('food', 'Jo tum mangwa do, sab chalega 🥰')">Jo tum mangwa do, sab chalega 🥰</div>
         </div>
     </div>
 
-    <div id="screen-q4" class="container hidden">
-        <h1>Q4. Agar kabhi randomly long drive par chalne ko bolu, toh chalogi? 🚗</h1>
+    <!-- SCREEN 4: Dessert -->
+    <div id="screen-dessert" class="container hidden">
+        <h1>Meehte (Dessert) me kya khana hai? 🍨</h1>
         <div class="options-list">
-            <div class="option-btn" onclick="selectOption(4, 'Chalo abhi chalte hain! 💨')">Chalo abhi chalte hain! 💨</div>
-            <div class="option-btn" onclick="selectOption(4, 'Plan bana kar chalenge pakka 🗓️')">Plan bana kar chalenge pakka 🗓️</div>
-            <div class="option-btn" onclick="selectOption(4, 'Nahi, mujhe neend pyari hai 😴')">Nahi, mujhe neend pyari hai 😴</div>
+            <div class="option-btn" onclick="selectOption('dessert', 'Sizzling Brownie with Ice Cream 🍫')">Sizzling Brownie with Ice Cream 🍫</div>
+            <div class="option-btn" onclick="selectOption('dessert', 'Lucknow ki Famous Shahi Tukda 🍧')">Lucknow ki Famous Shahi Tukda 🍧</div>
+            <div class="option-btn" onclick="selectOption('dessert', 'Red Velvet Pastry 🍰')">Red Velvet Pastry 🍰</div>
+            <div class="option-btn" onclick="selectOption('dessert', 'Rasmalai Twist 🌸')">Rasmalai Twist 🌸</div>
         </div>
     </div>
 
+    <!-- SCREEN 5: Date and Time -->
+    <div id="screen-datetime" class="container hidden">
+        <h1>Hum kab chal rahe hain? ⏳</h1>
+        <p>Apni marzi se Date aur Time select karo:</p>
+        <input type="date" id="dateInput">
+        <input type="time" id="timeInput">
+        <button class="btn-next" onclick="submitDateTime()">Next Step ➡️</button>
+    </div>
+
+    <!-- SCREEN 6: Movie Genre -->
+    <div id="screen-movie" class="container hidden">
+        <h1>Khaane ke baad movie kaunsi dekhni hai? 🎬</h1>
+        <div class="options-list">
+            <div class="option-btn" onclick="selectOption('movie', 'Romantic (Haath pakad kar dekhne ke liye) 💖')">Romantic (Haath pakad kar dekhne ke liye) 💖</div>
+            <div class="option-btn" onclick="selectOption('movie', 'Horror (Darr kar paas aane ke liye) 👻')">Horror (Darr kar paas aane ke liye) 👻</div>
+            <div class="option-btn" onclick="selectOption('movie', 'Action (Full entertainment) 🍿')">Action (Full entertainment) 🍿</div>
+            <div class="option-btn" onclick="selectOption('movie', 'Adventure (Kuch naya aur exciting) 🗺️')">Adventure (Kuch naya aur exciting) 🗺️</div>
+        </div>
+    </div>
+
+    <!-- SCREEN 7: Final Submit -->
     <div id="screen-final" class="container hidden">
-        <h1>Thank you for playing! ❤️</h1>
-        <p style="font-size: 14px; color: #555; margin-bottom: 25px;">Niche button par click karte hi answers copy ho jayenge, bas mere Snapchat DM me paste kar dena! ✨</p>
+        <h1>Yeah! Perfect Date Plan Ready Hai! ❤️</h1>
+        <p>Niche button par click karte hi saara plan copy ho jayega, bas mere Snapchat par paste kar do! ✨</p>
         <button class="btn-next" onclick="submitAnswers()">Copy & Open Snapchat 👻</button>
     </div>
 
     <script>
-        let answers = { q1: "", q2: "", q3: "", q4: "" };
+        let choices = { invite: "", restaurant: "", food: "", dessert: "", date: "", time: "", movie: "" };
         const mySnapchatUsername = "Rohit.yadav011"; 
 
+        // Floating Hearts Background
         const heartsContainer = document.getElementById('hearts-container');
-        const heartIcons = ['❤️', '💖', '✨', '🌸'];
+        const heartIcons = ['❤️', '💖', '✨', '🌸', '🌹'];
         for (let i = 0; i < 20; i++) {
             let heart = document.createElement('div');
             heart.classList.add('floating-heart');
@@ -140,7 +183,7 @@
         function startGame() {
             const music = document.getElementById('bg-music');
             music.play().catch(e => console.log("Audio play delayed"));
-            nextScreen('screen-q1');
+            nextScreen('screen-invite');
         }
 
         function nextScreen(nextId) {
@@ -148,27 +191,44 @@
             document.getElementById(nextId).classList.remove('hidden');
         }
 
-        function selectOption(questionNum, val) {
-            answers['q'+questionNum] = val;
-            if(questionNum === 1) nextScreen('screen-q2');
-            else if(questionNum === 2) nextScreen('screen-q3');
-            else if(questionNum === 3) nextScreen('screen-q4');
-            else if(questionNum === 4) nextScreen('screen-final');
+        function selectOption(step, val) {
+            choices[step] = val;
+            
+            if(step === 'invite') nextScreen('screen-restaurant');
+            else if(step === 'restaurant') nextScreen('screen-food');
+            else if(step === 'food') nextScreen('screen-dessert');
+            else if(step === 'dessert') nextScreen('screen-datetime');
+            else if(step === 'movie') nextScreen('screen-final');
+        }
+
+        function submitDateTime() {
+            const d = document.getElementById('dateInput').value;
+            const t = document.getElementById('timeInput').value;
+            if(!d || !t) {
+                alert("Please date aur time select karo! 🗓️⏱️");
+                return;
+            }
+            choices.date = d;
+            choices.time = t;
+            nextScreen('screen-movie');
         }
 
         function submitAnswers() {
-            const textToCopy = `Hey! Maine tumhara game khela, ye rhe mere jawab: 🤔\n\n` +
-                               `Q1. Looks wise: ${answers.q1}\n` +
-                               `Q2. 1 Saal Pehle Proposal: ${answers.q2}\n` +
-                               `Q3. Vibe Kaisi Hai: ${answers.q3}\n` +
-                               `Q4. Long Drive: ${answers.q4}`;
+            const textToCopy = `Hey Rohit! Maine humari date plan kar li hai: 🌹✨\n\n` +
+                               `💌 Date Proposal: ${choices.invite}\n` +
+                               `🏰 Restaurant: ${choices.restaurant}\n` +
+                               `🍲 Veg Dinner: ${choices.food}\n` +
+                               `🍨 Dessert: ${choices.dessert}\n` +
+                               `🗓️ Date: ${choices.date}\n` +
+                               `⏱️ Time: ${choices.time}\n` +
+                               `🎬 Movie Choice: ${choices.movie}`;
             
             navigator.clipboard.writeText(textToCopy).then(() => {
-                alert("Answers copy ho gaye hain! 👍 Ab Snapchat par paste kar do.");
+                alert("Aapka customized plan copy ho gaya hai! 👍 Ab Snapchat par paste kar dijiye.");
                 const snapchatUrl = `https://www.snapchat.com/add/${mySnapchatUsername}`;
                 window.open(snapchatUrl, '_blank');
             }).catch(err => {
-                alert("Please manually copy or screenshot the screen.");
+                alert("Please manually copy or screenshot the choices.");
             });
         }
     </script>
